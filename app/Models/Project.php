@@ -9,4 +9,10 @@ class Project extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'description', 'languages', 'n_stakeholders', 'year', 'git_link'];
+
+    /*
+    public function setTitleAttributes($_title){
+        $this->attrinutes
+    }
+    */
 }

@@ -15,6 +15,7 @@
                 <th scope="col">N° of Stakeholders</th>
                 <th scope="col">Year</th>
                 <th scope="col">GitHub Link</th>
+                <th scope="col">More</th>
               </tr>
             </thead>
             <tbody>
@@ -27,6 +28,9 @@
                     <td>{{ $projects->n_stakeholders }}</td>
                     <td>{{ $projects->year }}</td>
                     <td>{{ $projects->git_link }}</td>
+                    <td>
+                      <a class="btn btn-success" href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Info</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
