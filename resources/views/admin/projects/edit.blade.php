@@ -40,6 +40,8 @@
             </div>
 
             <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
+            <a class="btn btn-warning" href="{{ route('admin.projects.index') }}"><i class="fa-solid fa-backward"></i></a>
+
            
         </form>
     </div>
