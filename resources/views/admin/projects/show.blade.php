@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -21,6 +21,6 @@
                 {{ $project->git_link }}
             </li>
         </ul>
-        <a class="btn btn-danger" href="{{ route('admin.projects.index') }}">Back</a>
+        <a class="btn btn-warning" href="{{ route('admin.projects.index') }}"><i class="fa-solid fa-backward"></i></a>
     </div>    
 @endsection
