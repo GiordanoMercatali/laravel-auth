@@ -4,6 +4,8 @@ namespace Database\Seeders;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 class ProjectsTableSeeder extends Seeder
 {
@@ -12,21 +14,22 @@ class ProjectsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         
-        $projects = config('projects');
+        // $projects = config('projects');
 
-        foreach($projects as $project){
-            $new_project = new Project();
-            $new_project->title = $project['title'];
-            $new_project->description = $project['description'];
-            $new_project->languages = $project['languages'];
-            $new_project->n_stakeholders = $project['n_stakeholders'];
-            $new_project->year = $project['year'];
-            $new_project->git_link = $project['git_link'];
-            $new_project->save();
-        }
+        
+            $project = new Project();
+            $project->title = $faker->sentence(5);
+            $project->description = $faker->sentence(5);
+            $project->languages = $faker->sentence(3);
+            $project->n_stakeholders = $faker->numberBetween(1,5);
+            $project->year = $faker->year();
+            $project->git_link = $faker->url();
+            $project->slug = Str::slug($project->title);
+            $project->save();
+        
 
         
     }
