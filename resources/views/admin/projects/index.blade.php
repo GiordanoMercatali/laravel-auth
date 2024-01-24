@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container py-5">
@@ -21,13 +21,13 @@
             <tbody>
                 @foreach($projects as $project)
                 <tr>
-                    <th scope="row">{{ $projects->id }}</th>
-                    <td>{{ $projects->title }}</td>
-                    <td>{{ $projects->description }}</td>
-                    <td>{{ $projects->languages }}</td>
-                    <td>{{ $projects->n_stakeholders }}</td>
-                    <td>{{ $projects->year }}</td>
-                    <td>{{ $projects->git_link }}</td>
+                    <th scope="row">{{ $project->id }}</th>
+                    <td>{{ $project->title }}</td>
+                    <td>{{ $project->description }}</td>
+                    <td>{{ $project->languages }}</td>
+                    <td>{{ $project->n_stakeholders }}</td>
+                    <td>{{ $project->year }}</td>
+                    <td>{{ $project->git_link }}</td>
                     <td>
                       <a class="btn btn-success" href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Info</a>
                     </td>
