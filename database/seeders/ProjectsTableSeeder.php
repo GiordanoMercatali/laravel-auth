@@ -28,7 +28,7 @@ class ProjectsTableSeeder extends Seeder
                 $project->n_stakeholders = $faker->numberBetween(1,5);
                 $project->year = $faker->year();
                 $project->git_link = $faker->url();
-                $project->slug = Str::slug($project->title);
+                // $project->slug = Str::slug($project->title);
                 $project->save();
             }
         
