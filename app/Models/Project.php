@@ -12,7 +12,7 @@ class Project extends Model
     protected $fillable = ['title', 'description', 'languages', 'n_stakeholders', 'year', 'git_link', 'slug'];
 
     
-    public function setTitleAttributes($_title){
+    public function setTitleAttribute($_title){
         $this->attributes['title'] = $_title;
         $this->attributes['slug'] = Str::slug($_title); 
     }
