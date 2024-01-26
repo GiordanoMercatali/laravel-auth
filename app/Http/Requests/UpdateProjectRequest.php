@@ -22,12 +22,12 @@ class UpdateProjectRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'title' => ['required', 'unique:projects'],
+            'title' => ['required', Rule::unique('projects')->ignore($this->project)],
             'description' => ['nullable'],
             'languages' => ['required'],
             'n_stakeholders' => ['nullable'],
             'year' => ['nullable'],
-            'git_link' => ['required', 'unique:projects']
+            'git_link' => ['required', Rule::unique('projects')->ignore($this->project)]
         ];
     }
 }

@@ -14,7 +14,7 @@ class Project extends Model
     
     public function setTitleAttribute($_title){
         $this->attributes['title'] = $_title;
-        $this->attributes['slug'] = Str::slug($_title); 
+        $this->attributes['slug'] = Str::slug($_title, '-'); 
     }
     
 }
