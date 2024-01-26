@@ -6,7 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
-// use Mockery\Generator\StringManipulation\Pass\Pass;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -43,6 +43,7 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         $project = new Project();
         $project->fill($form_data);
+        $project->slug = Str::slug($project->title, '-');
         $project->save();
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
@@ -55,7 +56,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view ('admin.projects.show', compact('project'));
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -80,7 +81,7 @@ class ProjectController extends Controller
     {
         $form_data = $request->validated();
         $project->update($form_data);
-        return redirect()->route('admin.project.show', ['project' => $project->slug]);
+        return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 
     /**

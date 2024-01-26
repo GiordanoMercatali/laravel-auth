@@ -5,6 +5,15 @@
 
         <h2>Edit this project's info</h2>
 
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </div>
+        @endif
+
         <form action="{{ route('admin.projects.update', ['project' => $project->slug]) }}" method="POST">
             @csrf
             @method('PUT')
@@ -39,8 +48,9 @@
                 <input type="text" class="form-control " id="git_link" name="git_link" value="{{ old('git_link', $project->git_link) }}">
             </div>
 
-            <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
             <a class="btn btn-warning" href="{{ route('admin.projects.index') }}"><i class="fa-solid fa-backward"></i></a>
+            
+            <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i></button>
 
            
         </form>

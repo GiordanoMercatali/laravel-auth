@@ -21,15 +21,15 @@ class ProjectsTableSeeder extends Seeder
 
         
             for($i=0; $i<10; $i++){
-            $project = new Project();
-            $project->title = $faker->sentence(3);
-            $project->description = $faker->text(200);
-            $project->languages = $faker->sentence(3);
-            $project->n_stakeholders = $faker->numberBetween(1,5);
-            $project->year = $faker->year();
-            $project->git_link = $faker->url();
-            $project->slug = Str::slug($project->title);
-            $project->save();
+                $project = new Project();
+                $project->title = $faker->sentence(3);
+                $project->description = $faker->text(200);
+                $project->languages = $faker->sentence(3);
+                $project->n_stakeholders = $faker->numberBetween(1,5);
+                $project->year = $faker->year();
+                $project->git_link = $faker->url();
+                $project->slug = Str::slug($project->title);
+                $project->save();
             }
         
 
