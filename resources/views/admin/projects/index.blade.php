@@ -5,6 +5,10 @@
         <h1>Boolfolio</h1>
         <h2>List of Projects</h2>
 
+        <div class="text-end">
+          <a class="btn btn-primary" href="{{ route('admin.projects.create' )}}"><i class="fa-solid fa-plus"></i></a>
+        </div>
+
         <table class="table table-striped">
             <thead>
               <tr>
