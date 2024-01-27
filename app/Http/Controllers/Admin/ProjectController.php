@@ -44,6 +44,8 @@ class ProjectController extends Controller
         $project = new Project();
         $project->fill($form_data);
         // $project->slug = Str::slug($project->title, '-');
+        $path = Storage::put('project_images', $request->cover_image);
+        $project->cover_image = $path;
         $project->save();
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
