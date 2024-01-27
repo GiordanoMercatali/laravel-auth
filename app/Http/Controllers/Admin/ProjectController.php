@@ -97,6 +97,7 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
+        Storage::delete($project->cover_image);
 
         return redirect()->route('admin.projects.index');
     }
