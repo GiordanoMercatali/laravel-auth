@@ -4,6 +4,10 @@
     <div class="container">
         <h1>{{ $project->title }}</h1>
 
+        <div>
+            <img src="{{asset('storage/' . $project->cover_image)}}" alt="">
+        </div>
+
         <hr>
         <p>{{ $project->description }}</p>
 
