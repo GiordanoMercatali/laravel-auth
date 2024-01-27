@@ -15,13 +15,16 @@
         @endif
 
 
-        <form class="mt-5" action="{{ route('admin.projects.store') }}" method="POST">
+        <form class="mt-5" action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control " id="title" name="title" value="{{ old('title') }}">
             </div>
+
+            <label for="cover-image" class="form-label">Image</label>
+            <input type="file" class="mb-3 form-control" id="cover-image" name="cover_image">
 
             <div class="mb-3">
                 <label for="content" class="form-label">Description</label>
